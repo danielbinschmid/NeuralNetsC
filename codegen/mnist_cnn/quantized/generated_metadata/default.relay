@@ -1,0 +1,7 @@
+def @main(%in: Tensor[(4, 4, 4, 4), float32] /* ty=Tensor[(4, 4, 4, 4), float32] */) -> Tensor[(4, 4, 4, 4), float32] {
+  %0 = reshape(%in, newshape=[-1, 4]) /* ty=Tensor[(64, 4), float32] */;
+  %1 = nn.dense(%0, meta[relay.Constant][1] /* ty=Tensor[(4, 4), float32] */, units=None, out_dtype="float32") /* ty=Tensor[(64, 4), float32] */;
+  %2 = reshape(%1, newshape=[4, 4, 4, 4]) /* ty=Tensor[(4, 4, 4, 4), float32] */;
+  add(meta[relay.Constant][0] /* ty=Tensor[(4), float32] */, %2) /* ty=Tensor[(4, 4, 4, 4), float32] */
+}
+

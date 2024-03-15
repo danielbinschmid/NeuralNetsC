@@ -1,0 +1,21 @@
+def @main(%in: Tensor[(1, 1, 32, 32), float32] /* ty=Tensor[(1, 1, 32, 32), float32] */) -> Tensor[(1, 10), float32] {
+  %0 = nn.conv2d(%in, meta[relay.Constant][0] /* ty=Tensor[(6, 1, 5, 5), float32] */, padding=[0, 0, 0, 0], channels=6, kernel_size=[5, 5]) /* ty=Tensor[(1, 6, 28, 28), float32] */;
+  %1 = nn.bias_add(%0, meta[relay.Constant][1] /* ty=Tensor[(6), float32] */) /* ty=Tensor[(1, 6, 28, 28), float32] */;
+  %2 = nn.relu(%1) /* ty=Tensor[(1, 6, 28, 28), float32] */;
+  %3 = nn.max_pool2d(%2, pool_size=[2, 2], strides=[2, 2], padding=[0, 0, 0, 0]) /* ty=Tensor[(1, 6, 14, 14), float32] */;
+  %4 = nn.conv2d(%3, meta[relay.Constant][2] /* ty=Tensor[(16, 6, 5, 5), float32] */, padding=[0, 0, 0, 0], channels=16, kernel_size=[5, 5]) /* ty=Tensor[(1, 16, 10, 10), float32] */;
+  %5 = nn.bias_add(%4, meta[relay.Constant][3] /* ty=Tensor[(16), float32] */) /* ty=Tensor[(1, 16, 10, 10), float32] */;
+  %6 = nn.relu(%5) /* ty=Tensor[(1, 16, 10, 10), float32] */;
+  %7 = nn.max_pool2d(%6, pool_size=[2, 2], strides=[2, 2], padding=[0, 0, 0, 0]) /* ty=Tensor[(1, 16, 5, 5), float32] */;
+  %8 = reshape(%7, newshape=[1, -1]) /* ty=Tensor[(1, 400), float32] */;
+  %9 = nn.dense(%8, meta[relay.Constant][4] /* ty=Tensor[(160, 400), float32] */, units=160) /* ty=Tensor[(1, 160), float32] */;
+  %10 = add(%9, meta[relay.Constant][5] /* ty=Tensor[(160), float32] */) /* ty=Tensor[(1, 160), float32] */;
+  %11 = nn.relu(%10) /* ty=Tensor[(1, 160), float32] */;
+  %12 = nn.dense(%11, meta[relay.Constant][6] /* ty=Tensor[(32, 160), float32] */, units=32) /* ty=Tensor[(1, 32), float32] */;
+  %13 = add(%12, meta[relay.Constant][7] /* ty=Tensor[(32), float32] */) /* ty=Tensor[(1, 32), float32] */;
+  %14 = nn.relu(%13) /* ty=Tensor[(1, 32), float32] */;
+  %15 = nn.dense(%14, meta[relay.Constant][8] /* ty=Tensor[(10, 32), float32] */, units=10) /* ty=Tensor[(1, 10), float32] */;
+  %16 = add(%15, meta[relay.Constant][9] /* ty=Tensor[(10), float32] */) /* ty=Tensor[(1, 10), float32] */;
+  nn.relu(%16) /* ty=Tensor[(1, 10), float32] */
+}
+

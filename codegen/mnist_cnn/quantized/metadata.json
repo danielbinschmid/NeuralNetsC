@@ -1,0 +1,77 @@
+{
+  "modules": {
+    "default": {
+      "executors": [
+        "aot"
+      ],
+      "export_datetime": "2023-06-25 11:56:11Z",
+      "external_dependencies": [
+        {
+          "short_name": "tvm_standalone_crt",
+          "url": "./runtime",
+          "url_type": "mlf_path",
+          "version_spec": "0.11.1"
+        }
+      ],
+      "memory": {
+        "functions": {
+          "main": [
+            {
+              "constants_size_bytes": 0,
+              "device": 1,
+              "inputs": {
+                "in": {
+                  "dtype": "float32",
+                  "size": 1024
+                }
+              },
+              "io_size_bytes": 4096,
+              "outputs": {
+                "output": {
+                  "dtype": "float32",
+                  "size": 1024
+                }
+              },
+              "workspace_size_bytes": 2176
+            }
+          ],
+          "operator_functions": [
+            {
+              "function_name": "tvmgen_default_fused_reshape_add",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_nn_contrib_dense_pack",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 128
+                }
+              ]
+            },
+            {
+              "function_name": "tvmgen_default_fused_reshape",
+              "workspace": [
+                {
+                  "device": 1,
+                  "workspace_size_bytes": 0
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "model_name": "default",
+      "style": "full-model",
+      "target": [
+        "c -keys=riscv64,cpu -device=riscv64"
+      ]
+    }
+  },
+  "version": 7
+}
