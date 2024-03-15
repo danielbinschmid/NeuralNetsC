@@ -35,7 +35,7 @@ def create_headers():
     BASE_PATH=os.path.abspath(os.curdir)
 
     PREV_BASE_PATH=os.path.abspath(os.path.join(BASE_PATH, ".."))
-    OUTPUT_PATH = os.path.join(PREV_BASE_PATH, "include") # "/shared/d/master/ss23/guided_research/git_repos/hnn-components/LinearC/include"
+    OUTPUT_PATH = os.path.join(PREV_BASE_PATH, "include")
     print(OUTPUT_PATH)
     # load data
     INP_DATA_PATH=os.path.join(BASE_PATH, "inp.npy")
