@@ -1,7 +1,0 @@
-{
-    "python.analysis.autoImportCompletions": true,
-    "files.associations": {
-        "sml.h": "c",
-        "smlbase.h": "c"
-    }
-}
