@@ -6,7 +6,7 @@ This repository contains C or C++ code for a collection of neural networks. The 
 
 |Name of NN|Source|Language|Supports|
 |-|-|-|-|
-|[LeNet5](./codegen/lenet5/)|[CodeGen, Apache TVM]((https://github.com/danielbinschmid/C-CodeGen-NN))|Dependency-free C|Baremetal RISC-V compiler|
-|[MNIST CNN](./codegen/mnist_cnn/)|[CodeGen, Apache TVM]((https://github.com/danielbinschmid/C-CodeGen-NN))|Dependency-free C|Baremetal RISC-V compiler|
-|[Transformer Encoder Layer](./codegen/transformer_enc_layer/)|[CodeGen, Apache TVM]((https://github.com/danielbinschmid/C-CodeGen-NN))|Dependency-free C|Baremetal RISC-V compiler|
+|[LeNet5](./codegen/lenet5/)|[CodeGen, Apache TVM](https://github.com/danielbinschmid/C-CodeGen-NN)|Dependency-free C|Baremetal RISC-V compiler|
+|[MNIST CNN](./codegen/mnist_cnn/)|[CodeGen, Apache TVM](https://github.com/danielbinschmid/C-CodeGen-NN)|Dependency-free C|Baremetal RISC-V compiler|
+|[Transformer Encoder Layer](./codegen/transformer_enc_layer/)|[CodeGen, Apache TVM](https://github.com/danielbinschmid/C-CodeGen-NN)|Dependency-free C|Baremetal RISC-V compiler|
 |[Linear Layer](./plain_c/feedforward)|Handwritten|Dependency-free C|Standard GCC|
