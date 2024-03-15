@@ -61,5 +61,4 @@ int main(int argc, char **argv) {
     MatWrite(stdout , output, fmt,"output:");
     MatWrite(stdout , reference_output, fmt,"reference output:");
     // -----------------------------------------------------------------
-
 }
